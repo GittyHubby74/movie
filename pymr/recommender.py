@@ -1,9 +1,12 @@
 import pandas as pd
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
+import os
 
-# Load dataset
-df = pd.read_csv('movies.csv')
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+file_path = os.path.join(BASE_DIR, "movies.csv")
+
+df = pd.read_csv(file_path)
 
 # Fill missing values (just in case)
 df.fillna('', inplace=True)
